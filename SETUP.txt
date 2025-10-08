@@ -1,3 +1,65 @@
+---------------------------------------------------- VM --------------------
+sudo apt update
+sudo apt install git -y
+Check installation:
+
+git --version
+
+https://docs.docker.com/engine/install/ubuntu/
+
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo docker run hello-world
+
+
+https://docs.docker.com/engine/install/linux-postinstall/
+
+
+docker Configurations
+ sudo systemctl enable docker.service
+ sudo systemctl enable containerd.service
+
+ check
+
+ systemctl status docker
+
+ docker ps
+
+installl minikube
+https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download
+
+minikube start
+
+https://v1-32.docs.kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+install kubectl
+   curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+
+sudo snap install kubectl --classic
+
+kubectl version --client
+
+minikube status
+
+kubectl get nodes
+
+docker network ls
 -------------------------------------------------------------------  JENKINS SETUP ------------------------------------------------------------
 
 ----------------------------------------------------------
@@ -12,6 +74,17 @@ docker run -d --name jenkins \
 --network minikube \
 jenkins/jenkins:lts
 
+
+docker logs jenkins
+
+create firewall rule in GCP to access jenkins
+
+
+install pulgin in jenkins
+jenkinsjenkins pipleline
+kubernetes
+
+docker restart jenkins
 ------------------------------------------------------------
 
 
@@ -26,7 +99,19 @@ apt install -y python3-pip
 apt install -y python3-venv
 exit
 
+docker restart jenkins
 
+If you want to use the classic Linux text editor:
+
+sudo apt update
+sudo apt install vim -y
+
+
+Then open your file again:
+
+vim Jenkinsfile
+
+create file 
 ---------------------------------------------------------------
 
 ----------------------------------------------------------------------- JENKINSFILE CODE ---------------------------------------------------------------------
